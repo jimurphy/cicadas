@@ -12,17 +12,27 @@ function setup() {
 
   // Choose random file
   let index = floor(random(numSamples)) + 1;
-  filename = "./assets/" + index + ".mp3";
 
-  // Load with progress callback
+  filename = new URL(`assets/${index}.mp3`, window.location.href).href;
+  console.log("Trying to load:", filename);
+
   chosenSound = loadSound(
     filename,
+  
+    // success
     () => {
       isLoaded = true;
+      loadProgress = 1;
     },
+  
+    // error
+    (err) => {
+      console.error("Could not load:", filename, err);
+    },
+  
+    // progress
     (progress) => {
-      loadProgress = progress; // value between 0 and 1
-      loadProgress = lerp(loadProgress, progress, 0.2);
+      loadProgress = progress;
     }
   );
 }
