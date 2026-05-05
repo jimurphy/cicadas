@@ -3,7 +3,7 @@ let isPlaying = false;
 let isLoaded = false;
 let loadProgress = 0; // 0 → 1
 
-let numSamples = 3;
+let numSamples = 10;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -11,7 +11,7 @@ function setup() {
 
   // Choose random file
   let index = floor(random(numSamples)) + 1;
-  let filename = index + ".mp3";
+  let filename = "/assets/" + index + ".mp3";
 
   // Load with progress callback
   chosenSound = loadSound(
