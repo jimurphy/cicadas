@@ -2,6 +2,7 @@ let chosenSound;
 let isPlaying = false;
 let isLoaded = false;
 let loadProgress = 0; // 0 → 1
+let filename = "";
 
 let numSamples = 10;
 
@@ -11,7 +12,7 @@ function setup() {
 
   // Choose random file
   let index = floor(random(numSamples)) + 1;
-  let filename = "/assets/" + index + ".mp3";
+  filename = "/assets/" + index + ".mp3";
 
   // Load with progress callback
   chosenSound = loadSound(
@@ -35,7 +36,7 @@ function draw() {
   }
 
   textSize(20);
-  text("Étude 1: Loudness", width / 2, height / 2 - 30);
+  text(filename, width / 2, height / 2 - 30);
 
   if (isPlaying) {
     text("Tap to Pause", width / 2, height / 2 + 30);
