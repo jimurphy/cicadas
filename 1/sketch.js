@@ -12,7 +12,7 @@ function setup() {
 
   // Choose random file
   let index = floor(random(numSamples)) + 1;
-  filename = "/assets/" + index + ".mp3";
+  filename = "/1/assets/" + index + ".mp3";
 
   // Load with progress callback
   chosenSound = loadSound(
