@@ -4,7 +4,7 @@ let isLoaded = false;
 let loadProgress = 0; // 0 → 1
 let filename = "";
 
-let numSamples = 10;
+let numSamples = 26;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -46,8 +46,8 @@ function draw() {
   }
 
   textSize(20);
-  text(filename, width / 2, height / 2 - 30);
-
+  text("Kihikihi", width / 2, height / 2 - 30);
+  textSize(12);
   if (isPlaying) {
     text("Tap to Pause", width / 2, height / 2 + 30);
   } else {
