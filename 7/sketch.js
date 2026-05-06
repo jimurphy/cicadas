@@ -20,7 +20,7 @@ let sensitivity = 1000;
 let circleRadiusSlider;
 let sensitivitySlider;
 
-let debug = true;
+let debug = false;
 
 let numSamples = 2;
 
