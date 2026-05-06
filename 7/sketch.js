@@ -48,9 +48,13 @@ function setup() {
 }
 
 function chooseAndLoadSample() {
+  numSamples = 26;
   let index = floor(random(numSamples)) + 1;
-  let filename = index + ".mp3";
+  //let filename = index + ".mp3";
 
+  let filename = new URL(`assets/${index}.mp3`, window.location.href).href;
+
+  
   console.log("Chosen file:", filename);
 
   sound = loadSound(
