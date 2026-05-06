@@ -22,7 +22,7 @@ let sensitivitySlider;
 
 let debug = false;
 
-let numSamples = 2;
+let numSamples = 26;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -49,15 +49,25 @@ function setup() {
 
 function chooseAndLoadSample() {
   let index = floor(random(numSamples)) + 1;
-  let filename = index + ".mp3";
 
-  console.log("Chosen file:", filename);
+  filename = new URL(`assets/${index}.mp3`, window.location.href).href;
+  console.log("Trying to load:", filename);
 
-  sound = loadSound(
+  chosenSound = loadSound(
     filename,
+  
+    // success
     () => {
       isLoaded = true;
+      loadProgress = 1;
     },
+  
+    // error
+    (err) => {
+      console.error("Could not load:", filename, err);
+    },
+  
+    // progress
     (progress) => {
       loadProgress = progress;
     }
