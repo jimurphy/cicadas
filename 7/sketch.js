@@ -22,7 +22,7 @@ let sensitivitySlider;
 
 let debug = false;
 
-let numSamples = 26;
+let numSamples = 2;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -49,6 +49,23 @@ function setup() {
 
 function chooseAndLoadSample() {
   let index = floor(random(numSamples)) + 1;
+  let filename = index + ".mp3";
+
+  console.log("Chosen file:", filename);
+
+  sound = loadSound(
+    filename,
+    () => {
+      isLoaded = true;
+    },
+    (progress) => {
+      loadProgress = progress;
+    }
+  );
+}
+/*
+function chooseAndLoadSample() {
+  let index = floor(random(numSamples)) + 1;
 
   filename = new URL(`assets/${index}.mp3`, window.location.href).href;
   console.log("Trying to load:", filename);
@@ -73,6 +90,7 @@ function chooseAndLoadSample() {
     }
   );
 }
+*/
 
 function draw() {
   background(255);
