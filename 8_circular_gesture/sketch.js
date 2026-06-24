@@ -465,7 +465,7 @@ function drawInstructions() {
   fill(0);
   noStroke();
   textAlign(CENTER, CENTER);
-  textSize(16);
+  textSize(24);
 
   text(
     "Tap screen to trigger a click.\nThen drag in a circle to create a rasp.",
